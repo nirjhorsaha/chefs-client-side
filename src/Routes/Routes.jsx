@@ -5,6 +5,7 @@ import Blog from "../Components/Blog/Blog";
 import Registration from "../Pages/Registration/Registration";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import SignInPage from "../Pages/login/SignInPage";
+import Contact from "../Components/Contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <Registration/>
+            },
+            {
+                path: '/contact',
+                element: <Contact/>
             }
 
         ]

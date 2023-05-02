@@ -46,12 +46,7 @@ const NavBar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/statistic" className={({ isActive }) => (isActive ? 'text-blue-600' : 'default')}>
-                                About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/appliedjobs" className={({ isActive }) => (isActive ? 'text-blue-600' : 'default')}>
+                            <Link to="/contact" className={({ isActive }) => (isActive ? 'text-blue-600' : 'default')}>
                                 Contact
                             </Link>
                         </li>
