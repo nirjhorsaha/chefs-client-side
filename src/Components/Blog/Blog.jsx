@@ -4,7 +4,7 @@ import './Blog.css'
 const Blog = () => {
     return (
         <div>
-            <div className="w-10/12 mx-auto mt-8 text-oscuro">
+            <div className="w-10/12 mx-auto mt-8 text-oscuro mb-8">
                 <div className="flex flex-col justify-center w-full ">
                     <div>
                         <section className="text-gray-700">
