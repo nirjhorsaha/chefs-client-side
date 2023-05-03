@@ -1,7 +1,35 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Registration = () => {
+    const { createUser } = useContext(AuthContext);
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [photoUrl, setPhotoUrl] = useState("");
+    const [password, setPassword] = useState("");
+    console.log(name, email, photoUrl, password);
+
+    const [error, setError] = useState("");
+
+    const handleRegistration = (event) => {
+        event.preventDefault();
+        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+            console.log("password not valid need 8 char ");
+            return;
+        }
+        if ((name, email, password)) {
+            createUser(email, password)
+                .then((result) => {
+                    console.log(result.user);
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                });
+        }
+    };
+
     return (
         <div>
             <section className="dark:bg-gray-900">
@@ -13,21 +41,30 @@ const Registration = () => {
                             </h1>
                             <form className="space-y-4 md:space-y-6" action="#">
                                 <div>
+                                    <label for="text" className="custom_label_field">Your Name</label>
+                                    <input
+                                        onChange={(e) => setName(e.target.value)}
+                                        type="text" name="text" id="name" placeholder="name" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
+                                </div>
+                                <div>
                                     <label for="email" className="custom_label_field">Your email</label>
-                                    <input type="email" name="email" id="email" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" />
+                                    <input
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        type="email" name="email" id="email" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" />
                                 </div>
                                 <div>
                                     <label for="email" className="custom_label_field">Your Photo URL</label>
-                                    <input type="url" name="homepage" id="homepage" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="photo url" required="" />
+                                    <input
+                                        onChange={(e) => setPhotoUrl(e.target.value)}type="url" name="homepage" id="homepage" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="photo url" required="" />
+
                                 </div>
                                 <div>
                                     <label for="password" className="custom_label_field">Password</label>
-                                    <input type="password" name="password" id="password" placeholder="••••••••" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
+                                    <input
+                                        onChange={(e) => setPassword(e.target.value)}type="password" name="password" id="password" placeholder="••••••••" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
+
                                 </div>
-                                <div>
-                                    <label for="confirm-password" className="custom_label_field">Confirm password</label>
-                                    <input type="confirm-password" name="confirm-password" id="confirm-password" placeholder="••••••••" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
-                                </div>
+                                
                                 <div className="flex items-start">
                                     <div className="flex items-center h-5">
                                         <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="" />
@@ -36,7 +73,9 @@ const Registration = () => {
                                         <label for="terms" className="font-light text-gray-500 dark:text-gray-300">I accept the <a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
                                     </div>
                                 </div>
-                                <button type="submit" className="w-full text-white bg-orange-400 hover:bg-orange-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
+                                <button
+                                    onClick={handleRegistration}
+                                    type="submit" className="w-full text-white bg-orange-400 hover:bg-orange-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
                                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                     Already have an account? <Link className='font-medium text-primary-600 hover:underline dark:text-primary-500 italic' to='/login'>Login</Link>
                                 </p>

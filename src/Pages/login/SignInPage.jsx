@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const SignInPage = () => {
+    
     return (
         <div>
             <section className="bg-gray-50 dark:bg-gray-900">
@@ -25,11 +26,14 @@ const SignInPage = () => {
                             <form className="space-y-4 md:space-y-6" action="#">
                                 <div>
                                     <label for="email" className="custom_label_field">Your email</label>
-                                    <input type="email" name="email" id="email" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@gmail.com" required="" />
+                                    <input onChange={(e) => setEmail(e.target.value)}
+                                        type="email" name="email" id="email" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@gmail.com" required="" />
                                 </div>
                                 <div>
                                     <label for="password" className="custom_label_field">Password</label>
-                                    <input type="password" name="password" id="password" placeholder="••••••••" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
+                                    <input
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        type="password" name="password" id="password" placeholder="••••••••" className="custom_input_field dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-start">
@@ -42,11 +46,12 @@ const SignInPage = () => {
                                     </div>
                                     <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                                 </div>
-                                <button type="submit" className="w-full text-dark bg-orange-400 hover:bg-orange-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
+                                <button
+                                    onClick={handleLogin}
+                                    type="submit" className="w-full text-dark bg-orange-400 hover:bg-orange-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                     Don’t have an account yet?
                                     <Link className='ms-1 font-medium text-primary-600 italic hover:underline dark:text-primary-500' to='/signup'>Signup</Link>
-
                                 </p>
                             </form>
                         </div>
