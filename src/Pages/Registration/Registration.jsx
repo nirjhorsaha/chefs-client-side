@@ -9,7 +9,7 @@ const Registration = () => {
     const [email, setEmail] = useState("");
     const [photoUrl, setPhotoUrl] = useState("");
     const [password, setPassword] = useState("");
-    console.log(name, email, photoUrl, password);
+    // console.log(name, email, photoUrl, password);
 
     const [error, setError] = useState("");
 
