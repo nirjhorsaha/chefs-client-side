@@ -6,6 +6,7 @@ import Registration from "../Pages/Registration/Registration";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import SignInPage from "../Pages/login/SignInPage";
 import Contact from "../Components/Contact/Contact";
+import SingleChef from "../Components/SingleChef/SingleChef";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact/>
+            },
+            {
+                path: '/chef',
+                element: <SingleChef/>
             }
 
         ]
