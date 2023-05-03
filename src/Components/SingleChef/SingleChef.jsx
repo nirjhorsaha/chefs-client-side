@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const SingleChef = () => {
     const { id } = useParams();
     const singleChefdata = useLoaderData();
-    console.log(singleChefdata);
+    // console.log(singleChefdata);
     const { name, picture, bio, no_of_recipes, recipes, years_of_experience, ratings } = singleChefdata;
+
+    const [favourite, setfavourite] = useState(false);
+
     return (
         <div>
             <div className="card w-full mx-auto bg-base-100 ">
@@ -30,7 +36,15 @@ const SingleChef = () => {
                         {
                             recipes.map(recipe => (
                                 <div className=' border w-full p-2 rounded-xl'>
-                                    <h2 className="card-title font-bold">Item: {recipe.name}</h2>
+                                    <div className='flex items-center justify-between '>
+                                        <h2 className="card-title font-bold">Item: {recipe.name}</h2>
+                                        {
+                                            favourite ?
+                                                <button onClick={() => setfavourite(!favourite)
+                                                }><FaBookmark /> </button>
+                                                : <button onClick={() =>  setfavourite(!favourite)}><FaRegBookmark /> </button>
+                                        }
+                                    </div>
                                     <p className='font-bold'>Ingrediants: </p>
                                     {
                                         recipe.ingredients.map(ingredient => (

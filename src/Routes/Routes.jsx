@@ -35,8 +35,10 @@ const router = createBrowserRouter([
                 element: <Contact/>
             },
             {
-                path: '/chef',
-                element: <SingleChef/>
+                path: ':id',
+                element: <SingleChef />,
+                loader: ({params}) => fetch(`https://chefs-server-side-nirjhorsaha.vercel.app/chefs/${params.id}`)
+                
             }
 
         ]
