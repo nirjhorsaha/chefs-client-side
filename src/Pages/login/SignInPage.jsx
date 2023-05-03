@@ -3,7 +3,26 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const SignInPage = () => {
-    
+    const { signIn } = useContext(AuthContext);
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    // console.log(email, password);
+    const handleLogin = (event) => {
+        event.preventDefault();
+        if ((email, password)) {
+            signIn(email, password)
+                .then((result) => {
+                    console.log(result.user);
+                    // navigate("/");
+                })
+                .catch((error) => {
+                    console.log(error.message);
+                });
+        }
+    };
+
     return (
         <div>
             <section className="bg-gray-50 dark:bg-gray-900">
