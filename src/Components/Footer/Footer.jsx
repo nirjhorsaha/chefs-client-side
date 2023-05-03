@@ -8,7 +8,7 @@ const Footer = () => {
                     className="max-w-screen-xl px-4 mx-auto space-y-8 sm:px-6 lg:p-12 ">
                     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 ">
                         <div>
-                            <p className='text-5xl custom-text text-orange-400'>Aspiring Chef</p>
+                            <p className='text-5xl custom-text '>aspiring<span className='text-orange-400'>chef</span></p>
                             {/* <img src={CareerHub} alt="" srcset="" /> */}
                             <p className="max-w-xs mt-4 text-gray-500 text-start">
                                 There are many variations of passages of Lorem Ipsum , but the majority have suffered alteration in some form.
@@ -225,8 +225,8 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <p className="font-bold text-orange-500 text-center  italic">
-                        &copy; 2023. Aspiring Chef. All rights reserved.
+                    <p className="font-bold  text-center  italic">
+                        &copy; 2023 aspiring<span className='text-orange-400'>chef</span>. All rights reserved.
                     </p>
                 </div>
             </footer>
