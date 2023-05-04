@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const SignInPage = () => {
-    const { signIn, googleSignIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     // console.log('login page location', location);
@@ -14,6 +14,7 @@ const SignInPage = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     // console.log(email, password);
     const handleLogin = (event) => {
@@ -45,6 +46,18 @@ const SignInPage = () => {
             });
     }
 
+    const handleGithubSignIn = () => {
+        githubSignIn(githubProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+
+            }).catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+            });
+    }
+
     return (
         <div>
             <section className="bg-gray-50 dark:bg-gray-900">
@@ -62,7 +75,9 @@ const SignInPage = () => {
                                         type="submit" className="btn btn-outline"> Sign in with Google</button>
                                 </p>
                                 <p>
-                                    <button type="submit" className="btn btn-outline">Sign in with Github</button>
+                                    <button
+                                        onClick={handleGithubSignIn}
+                                        type="submit" className="btn btn-outline">Sign in with Github</button>
                                 </p>
                             </div>
                             <hr />
