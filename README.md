@@ -9,4 +9,4 @@
 
 When a user clicks on a chef's **View Recipes** button, he/she will be redirected to the **Chef Recipes** page. The page will show the information of the selected chef's recipes.
 
-### Live site Link: [Aspiring-Chef](https://www.google.com/)
+### Live site Link: [Aspiring-Chef](https://aspiring-chef-client.web.app/)
