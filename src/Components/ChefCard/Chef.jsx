@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import LazyLoad from 'react-lazy-load';
 
 const Chef = ({ chef }) => {
     const { name, picture, no_of_recipes, ratings, years_of_experience } = chef;
@@ -11,7 +12,9 @@ const Chef = ({ chef }) => {
         <div>
             <div className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
                 <div className='p-4'>
-                    <img className="w-80 rounded-lg md:rounded-lg" src={picture} alt="Bonnie Avatar" />
+                    <LazyLoad threshold={0.25} >
+                        <img className="w-80 rounded-lg md:rounded-lg" src={picture} alt="Bonnie Avatar" />
+                    </LazyLoad>
                 </div>
 
                 <div className="p-5">

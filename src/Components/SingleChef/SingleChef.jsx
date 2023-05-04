@@ -4,7 +4,7 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
-
+import LazyLoad from 'react-lazy-load';
 
 const SingleChef = () => {
     const { id } = useParams();
@@ -18,10 +18,12 @@ const SingleChef = () => {
         <div>
             <div className="card w-full mx-auto bg-base-100 ">
                 <figure className="px-10 pt-10">
-                    <img src={picture} alt="Shoes" className="rounded-xl" />
+                    <LazyLoad  >
+                        <img src={picture} alt="Shoes" className="rounded-xl" />
+                    </LazyLoad>
                 </figure>
                 <div className="card-body items-center ">
-                    <h2 className="card-title">{name }</h2>
+                    <h2 className="card-title">{name}</h2>
                     <p className='italic text-center w-full md:w-7/12'>{bio}</p>
                     <p className='font-bold'>Total Recipies: {no_of_recipes}</p>
                     <p className='font-bold'>Experiences: {years_of_experience} years</p>
@@ -42,7 +44,7 @@ const SingleChef = () => {
                                             favourite ?
                                                 <button onClick={() => setfavourite(!favourite)
                                                 }><FaBookmark /> </button>
-                                                : <button onClick={() =>  setfavourite(!favourite)}><FaRegBookmark /> </button>
+                                                : <button onClick={() => setfavourite(!favourite)}><FaRegBookmark /> </button>
                                         }
                                     </div>
                                     <p className='font-bold'>Ingrediants: </p>

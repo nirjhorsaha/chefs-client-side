@@ -11,10 +11,14 @@ const SignInPage = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     // console.log(email, password);
     const handleLogin = (event) => {
         event.preventDefault();
+        if (!email, password) {
+            setError('Something went wrong!')
+        }
         if ((email, password)) {
             signIn(email, password)
                 .then((result) => {
@@ -76,6 +80,7 @@ const SignInPage = () => {
                                     Don’t have an account yet?
                                     <Link className='ms-1 font-medium text-primary-600 italic hover:underline dark:text-primary-500' to='/signup'>Signup</Link>
                                 </p>
+                                <p className='text-red-500 text-center'>{error}</p>
                             </form>
                         </div>
                     </div>
