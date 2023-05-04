@@ -6,7 +6,7 @@ import img3 from '../../assets/top-view-table-full-delicious-food-composition.jp
 
 const Offer = () => {
     return (
-        <div className=''>
+        <div className='mb-4'>
             <h1 className='text-5xl text-center mb-10 uppercase'>What we offer <br /> <span className='text-orange-400 '>Taste & Experience</span></h1>
             <div className='grid md:grid-cols-2 w-9/12 mx-auto justify-center gap-4 items-center '>
                 <h1 className='uppercase text-3xl font-bold '>We make sure <br /> your food arive ontime </h1>
