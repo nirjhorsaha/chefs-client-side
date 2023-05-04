@@ -7,6 +7,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import SignInPage from "../Pages/login/SignInPage";
 import Contact from "../Components/Contact/Contact";
 import SingleChef from "../Components/SingleChef/SingleChef";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
             },
             {
                 path: ':id',
-                element: <SingleChef />,
+                element: <PrivateRoute><SingleChef /></PrivateRoute>,
                 loader: ({params}) => fetch(`https://chefs-server-side-nirjhorsaha.vercel.app/chefs/${params.id}`)
                 
             }
