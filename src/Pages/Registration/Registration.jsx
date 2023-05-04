@@ -21,7 +21,7 @@ const Registration = () => {
             console.log("password not valid need 8 char ");
             return;
         }
-        if ((name, email, password)) {
+        if ((name, email, password,photoUrl)) {
             createUser(email, password)
                 .then((result) => {
                     console.log(result.user);

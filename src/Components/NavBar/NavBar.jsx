@@ -6,7 +6,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 const NavBar = () => {
 
     const { user,logout } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     const handleLogout = () => {
         logout()
             .then()
@@ -70,9 +70,12 @@ const NavBar = () => {
                     {/* <a className="custom-btn">Start Applying</a> */}
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src="https://img.freepik.com/free-photo/handsome-cheerful-young-man-with-stylish-haircut-dimpled-smile-posing-isolated-against-blank-yellow-wall-dressed-cozy-maroon-sweater-having-confident-look_343059-4609.jpg?w=740&t=st=1683037467~exp=1683038067~hmac=89347860ebd726a4d5516670f11771d236bbc0d44d5f32ea1a889e8a1e883755" />
-                            </div>
+                            {
+                                user &&
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL} />
+                                </div>
+                            }
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
@@ -90,6 +93,7 @@ const NavBar = () => {
                                 <button className="btn btn-warning btn-outline ms-4">login</button>
                             </Link>
                     }
+                    
                     
                 </div>
             </div>
