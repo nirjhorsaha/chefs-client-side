@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const SignInPage = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     // console.log('login page location', location);
@@ -12,6 +13,7 @@ const SignInPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const googleProvider = new GoogleAuthProvider();
 
     // console.log(email, password);
     const handleLogin = (event) => {
@@ -31,6 +33,18 @@ const SignInPage = () => {
         }
     };
 
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+
+            }).catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+            });
+    }
+
     return (
         <div>
             <section className="bg-gray-50 dark:bg-gray-900">
@@ -43,7 +57,9 @@ const SignInPage = () => {
                             </h1>
                             <div className='flex gap-2'>
                                 <p>
-                                    <button type="submit" className="btn btn-outline"> Sign in with Google</button>
+                                    <button
+                                        onClick={handleGoogleSignIn}
+                                        type="submit" className="btn btn-outline"> Sign in with Google</button>
                                 </p>
                                 <p>
                                     <button type="submit" className="btn btn-outline">Sign in with Github</button>

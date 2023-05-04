@@ -53,7 +53,9 @@ const SingleChef = () => {
                                             <li className='ms-6'>{ingredient}</li>
                                         ))
                                     }
-                                    <p className='p-4'><span className='font-bold'>Cooking Method:</span> {recipe.cooking_method} </p>
+                                    <p className='p-4'>
+                                        <span className='font-bold'>Cooking Method:</span> {recipe.cooking_method}
+                                    </p>
                                     <div className="flex flex-col items-center ">
                                         <p> Rating: </p>
                                         <div>
