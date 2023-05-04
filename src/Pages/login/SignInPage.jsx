@@ -1,9 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const SignInPage = () => {
     const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    // console.log('login page location', location);
+    const from = location.state?.from?.pathname || '/'
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -15,7 +19,7 @@ const SignInPage = () => {
             signIn(email, password)
                 .then((result) => {
                     console.log(result.user);
-                    // navigate("/");
+                    navigate(from, { replace: true })
                 })
                 .catch((error) => {
                     console.log(error.message);

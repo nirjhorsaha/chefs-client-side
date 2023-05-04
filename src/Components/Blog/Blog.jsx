@@ -68,6 +68,7 @@ const Blog = () => {
                             </div>
                         </section>
                     </div>
+                    <button className='btn btn-wide justify-center mx-auto btn-outline'>Generate PDF</button>
                 </div>
             </div>
         </div>

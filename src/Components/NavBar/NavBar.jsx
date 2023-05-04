@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import bannerImage from '../../assets/aspiringchef.png'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const NavBar = () => {
+
+    const { user,logout } = useContext(AuthContext);
+    console.log(user);
+    const handleLogout = () => {
+        logout()
+            .then()
+            .catch(error => console.log(error))
+    }
     return (
         <div>
             <div className="navbar bg-base-100 p-5 ">
@@ -74,7 +83,14 @@ const NavBar = () => {
                             <li><a>Dashboard</a></li>
                         </ul>
                     </div> 
-                    <button className="btn btn-warning btn-outline ms-4">Logout</button>
+                    {
+                        user ?
+                            <button onClick={handleLogout} className="btn btn-warning btn-outline ms-4">Logout</button>
+                            : <Link to='/login'>
+                                <button className="btn btn-warning btn-outline ms-4">login</button>
+                            </Link>
+                    }
+                    
                 </div>
             </div>
 
