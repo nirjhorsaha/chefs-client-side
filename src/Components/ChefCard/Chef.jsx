@@ -22,8 +22,8 @@ const Chef = ({ chef }) => {
                         {name}
                     </h3>
                     {/* <span className="text-gray-500 dark:text-gray-400">CEO & Web Developer</span> */}
-                    <p className='text-gray-500 uppercase font-bold tracking-tight italic'>Years of experience: {years_of_experience}</p>
-                    <p className='text-gray-500  font-bold tracking-tight italic'>No of recipes: {no_of_recipes}</p>
+                    <p className='text-gray-500 font-bold tracking-tight italic'>Years of Experience: {years_of_experience}</p>
+                    <p className='text-gray-500 font-bold tracking-tight italic'>No of Recipes: {no_of_recipes}</p>
                     <p>
                         <Rating
                             style={{ maxWidth: 120 }}
@@ -32,7 +32,7 @@ const Chef = ({ chef }) => {
                         />
                     </p>
                     <Link to={`/${chef.id}`}>
-                        <button className="btn btn-ghost btn-outline mt-2">
+                        <button className="btn btn-ghost btn-outline mt-4">
                             View Recipes <FaArrowRight className='ms-2' />
                         </button>
                     </Link>

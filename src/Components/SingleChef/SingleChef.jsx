@@ -13,6 +13,7 @@ const SingleChef = () => {
     const { name, picture, bio, no_of_recipes, recipes, years_of_experience, ratings } = singleChefdata;
 
     const [favourite, setfavourite] = useState(false);
+    const [readMore, setReadmore] = useState(false);
 
     return (
         <div>
@@ -54,9 +55,14 @@ const SingleChef = () => {
                                         ))
                                     }
                                     <p className='p-4'>
-                                        <span className='font-bold'>Cooking Method:</span> {recipe.cooking_method}
+                                        <span className='font-bold'>Cooking Method:</span>
+                                        {
+                                            recipe.cooking_method.length < 150 ?
+                                                recipe.cooking_method
+                                                : recipe.cooking_method.slice(0, 230)
+                                        }... <button className='italic'>Read More</button>
                                     </p>
-                                    <div className="flex flex-col items-center ">
+                                    <div className="flex flex-col items-center">
                                         <p> Rating: </p>
                                         <div>
                                             <Rating
