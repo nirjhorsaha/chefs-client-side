@@ -3,6 +3,7 @@ import { Link, useRouteError } from 'react-router-dom'
 
 const ErrorPage = () => {
     const { error, status } = useRouteError()
+
     return (
         <div className="max-w-screen-xl mx-auto px-4 flex items-center justify-start h-screen md:px-8">
             <div className="max-w-lg mx-auto flex-1 flex-row-reverse gap-12 items-center justify-between md:max-w-none md:flex">

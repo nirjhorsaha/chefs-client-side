@@ -5,16 +5,17 @@ import '@smastrom/react-rating/style.css'
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
 import LazyLoad from 'react-lazy-load';
+import useTitle from '../../hooks/useTitle';
 
 const SingleChef = () => {
     const { id } = useParams();
     const singleChefdata = useLoaderData();
     // console.log(singleChefdata);
-    const { name, picture, bio, no_of_recipes, recipes, years_of_experience, ratings } = singleChefdata;
+    const { name, picture, bio, no_of_recipes, recipes, years_of_experience, ratings, designation } = singleChefdata;
 
     const [favourite, setfavourite] = useState(false);
     const [readMore, setReadmore] = useState(false);
-
+    useTitle('Chef')
     return (
         <div>
             <div className="card w-full mx-auto bg-base-100 ">
@@ -24,7 +25,8 @@ const SingleChef = () => {
                     </LazyLoad>
                 </figure>
                 <div className="card-body items-center ">
-                    <h2 className="card-title">{name}</h2>
+                    <h2 className="card-title text-3xl">{name}</h2>
+                    <p className='font-serif'>{designation}</p>
                     <p className='italic text-center w-full md:w-7/12'>{bio}</p>
                     <p className='font-bold'>Total Recipies: {no_of_recipes}</p>
                     <p className='font-bold'>Experiences: {years_of_experience} years</p>
@@ -55,7 +57,7 @@ const SingleChef = () => {
                                         ))
                                     }
                                     <p className='p-4'>
-                                        <span className='font-bold'>Cooking Method:</span>
+                                        <span className='font-bold'>Cooking Method: </span>
                                         {
                                             recipe.cooking_method.length < 150 ?
                                                 recipe.cooking_method
@@ -74,6 +76,7 @@ const SingleChef = () => {
                                     </div>
                                 </div>
                             ))
+                        
                         }
                     </div>
                     <div className="card-actions">

@@ -6,7 +6,7 @@ import '@smastrom/react-rating/style.css'
 import LazyLoad from 'react-lazy-load';
 
 const Chef = ({ chef }) => {
-    const { name, picture, no_of_recipes, ratings, years_of_experience } = chef;
+    const { name, picture, no_of_recipes, ratings, years_of_experience, designation } = chef;
 
     return (
         <div>
@@ -18,9 +18,10 @@ const Chef = ({ chef }) => {
                 </div>
 
                 <div className="p-5">
-                    <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {name}
                     </h3>
+                    <p className='font-serif'>{designation }</p>
                     {/* <span className="text-gray-500 dark:text-gray-400">CEO & Web Developer</span> */}
                     <p className='text-gray-500 font-bold tracking-tight italic'>Years of Experience: {years_of_experience}</p>
                     <p className='text-gray-500 font-bold tracking-tight italic'>No of Recipes: {no_of_recipes}</p>

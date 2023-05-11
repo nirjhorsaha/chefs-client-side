@@ -8,6 +8,7 @@ import SignInPage from "../Pages/login/SignInPage";
 import Contact from "../Components/Contact/Contact";
 import SingleChef from "../Components/SingleChef/SingleChef";
 import PrivateRoute from "./PrivateRoute";
+import Chefs from "../Components/Chefs/Chefs";
 
 const router = createBrowserRouter([
     {
@@ -20,8 +21,8 @@ const router = createBrowserRouter([
                 element: <Home/>
             },
             {
-                path: '/blog',
-                element: <Blog/>
+                path: '/chefs',
+                element: <Chefs/>
             },
             {
                 path: '/login',

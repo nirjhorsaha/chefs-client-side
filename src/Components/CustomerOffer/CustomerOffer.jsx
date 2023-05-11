@@ -2,7 +2,7 @@ import React from 'react';
 
 const CustomerOffer = () => {
     return (
-        <div className='mb-8'>
+        <div className='my-14'>
             <h1 className='text-5xl text-center uppercase font-bold tracking-tight
             '>Choose From a variety <br /> of <span className='text-orange-400'>packages</span></h1>
             <div className="grid md:grid-cols-4 gap-4 mx-auto justify-center mt-6">

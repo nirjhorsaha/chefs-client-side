@@ -5,12 +5,12 @@ const Footer = () => {
         <div>
             <footer aria-label="Site Footer" className=" bg-slate-200 font-medium rounded-t-3xl ">
                 <div
-                    className="max-w-screen-xl px-4 mx-auto space-y-8 sm:px-6 lg:p-12 ">
+                    className="max-w-screen-xl px-6 py-6 mx-auto space-y-8 sm:px-6 lg:p-12 ">
                     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 ">
                         <div>
-                            <p className='text-5xl custom-text '>aspiring<span className='text-orange-400'>chef</span></p>
+                            <p className='text-5xl custom-text '>Aspiring<span className='text-orange-400'>chef</span></p>
                             {/* <img src={CareerHub} alt="" srcset="" /> */}
-                            <p className="max-w-xs mt-4 text-gray-500 text-start">
+                            <p className="md:max-w-xs mt-4 text-gray-500 text-start italic">
                                 There are many variations of passages of Lorem Ipsum , but the majority have suffered alteration in some form.
                             </p>
 
@@ -112,10 +112,9 @@ const Footer = () => {
                         </div>
 
                         <div
-                            className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4"
-                        >
+                            className="grid grid-cols-2 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
                             <div>
-                                <p className="font-medium text-gray-900">Services</p>
+                                <p className="font-extrabold text-gray-900">Services</p>
                                 <nav aria-label="Footer Navigation - Services" className="mt-6 ">
                                     <ul className="space-y-4 text-sm ">
                                         <li>
@@ -146,7 +145,7 @@ const Footer = () => {
                             </div>
 
                             <div>
-                                <p className="font-medium text-gray-900">Company</p>
+                                <p className="font-extrabold text-gray-900">Company</p>
 
                                 <nav aria-label="Footer Navigation - Company" className="mt-6">
                                     <ul className="space-y-4 text-sm">
@@ -172,7 +171,7 @@ const Footer = () => {
                             </div>
 
                             <div>
-                                <p className="font-medium text-gray-900">Helpful Links</p>
+                                <p className="font-extrabold text-gray-900">Helpful Links</p>
 
                                 <nav aria-label="Footer Navigation - Company" className="mt-6">
                                     <ul className="space-y-4 text-sm">
@@ -198,7 +197,7 @@ const Footer = () => {
                             </div>
 
                             <div>
-                                <p className="font-medium text-gray-900">Legal</p>
+                                <p className="font-extrabold text-gray-900">Legal</p>
 
                                 <nav aria-label="Footer Navigation - Legal" className="mt-6">
                                     <ul className="space-y-4 text-sm">
@@ -226,7 +225,7 @@ const Footer = () => {
                     </div>
 
                     <p className="font-bold  text-center  italic">
-                        &copy; 2023 aspiring<span className='text-orange-400'>chef</span>. All rights reserved.
+                        &copy; 2023 Aspiring<span className='text-orange-400'>chef</span>. All rights reserved.
                     </p>
                 </div>
             </footer>

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import bannerImage from '../../assets/aspiringchef.png'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const NavBar = () => {
@@ -22,25 +22,21 @@ const NavBar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ">
                             <li>
-                                <Link to="/" className='default '>
+                                <NavLink to="/" className='default '>
                                     Menu
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link to="/statistic" className='default'>
-                                    About
-                                </Link>
+                                <NavLink to="/chefs" className='default'>
+                                    Chefs
+                                </NavLink>
                             </li>
                             <li>
-                                <Link to="/appliedjobs" className='default'>
+                                <NavLink to="/contact" className='default'>
                                      Contact
-                                </Link>
+                                </NavLink>
                             </li>
-                            <li>
-                                <Link to="/blog" className='default'>
-                                    Blog
-                                </Link>
-                            </li>
+                           
                         </ul>
                     </div>
                     <Link to="/" className='normal-case text-5xl custom-text font-bold'>
@@ -50,19 +46,22 @@ const NavBar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 tracking-wider font-medium">
                         <li>
-                            <Link to="/" className={({ isActive }) => (isActive ? 'text-blue-600' : 'default')}>
+                            <NavLink to="/"
+                                className={({ isActive }) => (isActive ? 'text-orange-600 underline' : 'default')}>
                                 Menu
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to="/contact" className={({ isActive }) => (isActive ? 'text-blue-600' : 'default')}>
+                            <NavLink to="/chefs"
+                                className={({ isActive }) => (isActive ? 'text-orange-600 underline' : 'default')}>
+                                Chefs
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/contact"
+                                className={({ isActive }) => (isActive ? 'text-orange-600 underline' : 'default')}>
                                 Contact
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/blog" className={({ isActive }) => (isActive ? 'text-blue-600' : 'default')}>
-                                Blog
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>
@@ -93,11 +92,8 @@ const NavBar = () => {
                                 <button className="btn btn-warning btn-outline ms-4">login</button>
                             </Link>
                     }
-                    
-                    
                 </div>
             </div>
-
         </div>
     );
 };
